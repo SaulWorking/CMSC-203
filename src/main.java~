@@ -1,0 +1,29 @@
+import java.util.Scanner;
+import java.io.File;
+
+public class ESPGame{
+	public static void main(String[] args){
+	File colorData = new File("colors.txt");	
+	Scanner key = new Scanner(System.in);
+
+	System.out.println("a. 16 colors");
+	System.out.println("b. 10 colors ");
+	System.out.println("c. 5 colors");
+	System.out.println("d. exit");
+	char userInput = key.nextLine().charAt(0);
+	
+	switch(userInput){
+		case 'a' ->{
+			while(key.hasNextLine()){
+				String color =  key.nextLine();
+				System.out.println(color);
+			}
+		}
+	}
+
+
+
+	System.out.println("End of program");
+
+	}
+}
