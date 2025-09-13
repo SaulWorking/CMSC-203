@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 import java.io.IOException;
 import java.io.File;
 
@@ -36,7 +37,7 @@ public class ESPGame{
 						System.out.println("Color #" + (i+1) + ": " + colors[i]);
 					}	
 					isCorrectInput = true;
-					upperLimit = 16;
+					upperLimit = 15;
 				}
 
 				case 'b' ->{
@@ -44,7 +45,7 @@ public class ESPGame{
 						System.out.println("Color #" + (i+1) + ": " + colors[i]);
 					}	
 					isCorrectInput = true;
-					upperLimit = 10;
+					upperLimit = 9;
 				}
 
 				case 'c' ->{
@@ -52,7 +53,7 @@ public class ESPGame{
 						System.out.println("Color #" + (i+1) + ": " + colors[i]);
 					}	
 					isCorrectInput = true;
-					upperLimit =5;
+					upperLimit =4;
 				}
 
 				case 'd' ->{
@@ -69,23 +70,30 @@ public class ESPGame{
 		}
 }
 
-int randomNum;
+Random randomNum = new Random();
 
 for(int i =0; i< 3; i++){
-	randomNum = Math.random(upperLimit);
-	System.out.println(colors[randomNum]);
+	int tempNum = 0;
+	tempNum = randomNum.nextInt(upperLimit) + 1;
+
+	if(tempNum == 16){
+		tempNum = 15;
+	}
+
+	System.out.println(colors[tempNum]);
 
 	System.out.println("Choose a color number...");
 	userNum = key.nextInt();
 
-		if(userNum == randomNum){
-	System.out.println(colors[randomNum]);
+		System.out.println("Color Number: " + tempNum);
+		if(userNum == tempNum){
+	System.out.println(colors[tempNum]);
 
-			System.out.println("win!");
+			System.out.println("\nYOU WINwin!");
 		}else{
 
-	System.out.println(colors[randomNum]);
-			System.out.println("Fail");
+	System.out.println(colors[tempNum]);
+			System.out.println("YOU FAIL\n\nFail");
 		}
 
 }
