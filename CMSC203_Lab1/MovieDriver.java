@@ -5,7 +5,7 @@ public class MovieDriver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Scanner key = new Scanner(System.in);
+	Scanner key = new Scanner(System.in);
 		char userInput;
 		Movie userMovie  = new Movie();
 		Boolean isMovieInput = true;
@@ -53,3 +53,4 @@ public class MovieDriver {
 	}
 
 }
+
