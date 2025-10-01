@@ -41,15 +41,31 @@ public class CryptoManager {
 	 */   
 
     public static String vigenereEncryption(String plainText, String key) {
+	   String vigenereString = "";
+	   int length = plainText.length();
+	   char newChar;
+	   char keyChar;
+	   for(int i =0; i<length; ++i){
+	   	newChar = plainText.charAt(i);
+		keyChar = (char)((int)key.charAt(i) - (int)('A'));
+		vigenereString += (char)(newChar + (int)(keyChar));
+	   } 
          //to be implemented by students
-	 return "empty";
-    }
+	 return vigenereString;
+    } 
 
     // Vigenere Decryption
     public static String vigenereDecryption(String encryptedText, String key) {
-         //to be implemented by students
-	 //
-	 return "empty";
+	   String decryptedString = "";
+	   int length = encryptedText.length();
+	   char stringChar;
+	   char keyChar;
+	   for(int i =0; i<length; ++i){
+	   	stringChar= encryptedText.charAt(i);
+		keyChar = (char)((int)key.charAt(i) - (int)('A'));
+		decryptedString += (char)(stringChar - (int)(keyChar));
+	   } 
+	   return decryptedString;
     }
 
 
@@ -89,15 +105,22 @@ public class CryptoManager {
 	for(int i =0; i<length; ++i){
 		newChar = plainText.charAt(i);
 		caesarString += newChar + key;
+		caesarString += (char)(newChar + key);
 	}
 	 return caesarString;
     }
 
     // Caesar Decryption
     public static String caesarDecryption(String encryptedText, int key) {
-	//to be implemented by students
-	//
-	 return "empty";
+
+	String decryptedString = "";	
+	int length = encryptedText.length();
+	char newChar;
+	for(int i =0; i<length; ++i){
+		newChar = encryptedText.charAt(i);
+		decryptedString += (char)(newChar - key);
+	}
+	 return decryptedString; 
     }    
 
 }
