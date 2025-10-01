@@ -2,7 +2,7 @@
 
 
 JFXLIB = ../project3/lib
-JFXMOD = javafx.controls
+JFXMOD = javafx.controls,javafx.fxml
 
 JC = java
 .SUFFIXES: .java .class

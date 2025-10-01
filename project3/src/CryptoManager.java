@@ -89,7 +89,7 @@ public class CryptoManager {
 	for(int i =0; i<length; ++i){
 		newChar = plainText.charAt(i);
 		caesarString += newChar + key;
-
+	}
 	 return caesarString;
     }
 
