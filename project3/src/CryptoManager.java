@@ -104,6 +104,7 @@ public class CryptoManager {
 	char newChar;
 	for(int i =0; i<length; ++i){
 		newChar = plainText.charAt(i);
+		caesarString += newChar + key;
 		caesarString += (char)(newChar + key);
 	}
 	 return caesarString;
