@@ -82,14 +82,14 @@ public class CryptoManager {
 
     public static String playfairEncryption(String plainText, String key) {
          //to be implemented by students
-	 //
-	 return "empty";
+		
+	 return "empty" + plainText;
     }
 
     // Vigenere Decryption
     public static String playfairDecryption(String encryptedText, String key) {
          //to be implemented by students
-	 return "empty";
+	 return "empty" + encryptedText;
     }
 
     /**
