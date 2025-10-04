@@ -31,12 +31,6 @@ public class GradeBook
       else
          return false;      
    }
-   /**
-    * Returns the score size.
-    * @return scoreSize
-    */	
-
-   public int getScoreSize(){return scoreSize;}
 
    /**
       Computes the sum of the scores in this gradebook.
@@ -84,19 +78,27 @@ public class GradeBook
       else
          return sum() - minimum();
    }
-   @Override
-   public String toString()
-   {
-       String grade = "";
-       for(int i =0; i <scores.length;++i){
-       
-       grade += scores[i] + ' '; 
-       }	
-	
-
-   return  
-   }
+  
+   /**
+    * Gets the number of scores in this gradebook
+    * @return the size of the maximum number of scores in this gradebook
+    */
    
+   public double getScoreSize() 
+   {
+	   return scoresSize;
+   }
 
+   @Override
+   public String toString() 
+   {
+	   String stringScore = "";
+		for(int index=0; index<scoresSize; ++index) 
+		{
+			stringScore += (Double.toString(scores[index]) + " "); 
+		
+		}  
+		return stringScore;
+   }
 }
 
