@@ -81,8 +81,13 @@ public class CryptoManager {
 	 */    
 
     public static String playfairEncryption(String plainText, String key) {
-         //to be implemented by students
+	for(int i=0; i< plainText.length(); ++i)
+	{
+	
 		
+	}
+
+	char [][]cypherMatrix = new char[8][8];	
 	 return "empty" + plainText;
     }
 
@@ -90,6 +95,29 @@ public class CryptoManager {
     public static String playfairDecryption(String encryptedText, String key) {
          //to be implemented by students
 	 return "empty" + encryptedText;
+    }
+
+    public static char[] checkSameRow(char [][]matrix, int [][]indexes)
+    {
+    	char [] characters = new char[2];
+
+    	return characters;
+    }
+
+
+    public static char[] checkSameColumn(char [][]matrix, int [][]indexes)
+    {
+    	char [] characters = new char[2];
+
+    	return characters;
+    }
+
+
+    public static char[] checkRectangle(char [][]matrix, int [][]indexes)
+    {
+    	char [] characters = new char[2];
+
+    	return characters;
     }
 
     /**
@@ -104,7 +132,6 @@ public class CryptoManager {
 	char newChar;
 	for(int i =0; i<length; ++i){
 		newChar = plainText.charAt(i);
-		caesarString += newChar + key;
 		caesarString += (char)(newChar + key);
 	}
 	 return caesarString;
