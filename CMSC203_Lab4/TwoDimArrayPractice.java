@@ -126,15 +126,17 @@ public class TwoDimArrayPractice extends JFrame
     //  where row is the index of the array's current row
     //  and column is the index of the array's current column
     // Write your code here:
+    System.out.print("\n");
 	    for(int row =0; row<ROWS; ++row)
 	    {
-	System.out.println(row);
-		for(int column=0; column<COLUMNS; column++)
-		{
-		    animate(row, column);
-		} 
+		   System.out.print(row + "\t");
+		      for(int column=0; column<COLUMNS; column++)
+		      {
+			System.out.print(intArray[row][column]+ " ");
+			  animate(row, column);
+		      } 
+		      System.out.print("\n");
 	    }
-
 
    }
 
@@ -193,6 +195,7 @@ public class TwoDimArrayPractice extends JFrame
         if(intArray[row][column] < min)
         {
           min = intArray[row][column];
+	  animate(row, column, min);
         }
     }
     
