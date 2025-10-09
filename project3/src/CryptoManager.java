@@ -81,14 +81,25 @@ public class CryptoManager {
 	 */    
 
     public static String playfairEncryption(String plainText, String key) {
-	for(int i=0; i< plainText.length(); ++i)
-	{
 	
+	char [][]cypherMatrix = new char[8][8];	
+	
+	int matrixNum = 0;
+	for(int i=0; i<8; ++i)
+	{
+		for(int j =0; j<8; ++j)
+		{
+
+			cypherMatrix[i][j] = ALPHABET64.charAt(matrixNum);
+			++matrixNum;
+
+		}
 		
 	}
+	System.out.println(cypherMatrix[0][0]);
 
-	char [][]cypherMatrix = new char[8][8];	
-	 return "empty" + plainText;
+
+	 return "Among Gus" + plainText;
     }
 
     // Vigenere Decryption
