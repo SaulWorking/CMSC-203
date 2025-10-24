@@ -75,42 +75,98 @@ public class ManagementCompany {
     public void setProperties(Property[] properties) {this.properties = properties;}
     public void setTaxID(String taxID) {this.taxID = taxID;}
 
-    public int addProperty(String name, String city, double rent, String owner) {
+	
+
+    
+    public int addProperty(String name, String city, double rent, String owner){
+	 this(name, city, rent, owner, 0, 0, 0, 0);
         return 1;
     }
 
+
+    public int addProperty(String name, String city, double rent, String owner, int x, int y, int width, int depth){
+
+   	return 1; 
+    }
+
     public int addProperty(Property p){
-    	return 1;
+	if(p == null){
+		return -2;	
+	}
+
+	if(isPropertiesFull()){
+		return	-1;
+	}
+	//not fleshed out function yet
+	if(!(this.plot.encompasses(p.getPlot())){
+		return -3;	
+	}
+	
+	int propertyNum = getPropertiesCount() + 1;
+
+	//we make a new copy instead of referencing the given property.	
+	properties[propertyNum] = new Property(p);	
+	
+
     }
 
     public double getTotalRent() {
-        return 0.0;
+	double totalRent = 0.0;
+
+	for(int i=0; i<MAX_PROPERTY; i++){
+		totalRent += properties[i].getRentAmount();	
+	}
+	
+        return totalRent;
     }
 
     public Property getHighestRentProperty() {
-        return null;
+
+	double highestRent =0.0;
+    	int propertyNumber = 0;	    
+
+	for(int num = 0; num<MAX_PROPERTY; num++){
+		double currentRent = properties[num].getRentAmount();
+		if(currentRent > highestRent){
+			highestRent = currentRent;
+			propertyNumber = num;
+		}	
+	}	
+	
+	//we do not want a reference to properties[num]
+        return new Property(properties[i]);
     }
 
     public void removeLastProperty() {
+	int lastProperty = MAX_PROPERTY - 1;
+	propreties[lastProperty] = null;
     }
 
     public boolean isPropertiesFull() {
-        return false;
+
+	boolean isFull = (getPropertiesCount() == MAX_PROPERTY) ? true : false
+	return isFull;
     }
 
     public int getPropertiesCount() {
-        return 0;
+
+	int counter = 0;
+	for(int i=0; i<MAX_PROPERTY; i++){
+		if(properties[i] != null){
+			counter++;
+		}	
+	}
+        return counter;
     }
 
     public boolean isManagementFeeValid() {
         return false;
-}
+    }
 
     public String toString(){
 
         double totalManagementFeePer = 0.0;
         String ManagementCompanyInfo = "Management Company: " + name + "Tax ID: " + taxID + "\n\n";
-
 
 
         for(int i =0; i<MAX_PROPERTY; i++){
