@@ -1,7 +1,7 @@
 # www.cs.swarthmore.edu/~newhall/unixhelp/javamakefiles.html
 
 
-JFXLIB = ../project3/lib
+JFXLIB = ../project4/lib
 JFXMOD = javafx.controls,javafx.fxml
 
 JC = java
@@ -11,9 +11,7 @@ JC = java
 	$(JC) --enable-native-access=javafx.graphics --module-path $(JFXLIB) --add-modules $(JFXMOD) $*.java
 
 CLASSES = \
-	src/FXDriver.java \
-	src/FXMainPane.java \
-	src/CryptoManager.java \
+	src/MgmCompanyGui.java \
 
 default: classes
 
