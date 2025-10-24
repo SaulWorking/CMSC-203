@@ -76,7 +76,11 @@ public class ManagementCompany {
     public void setTaxID(String taxID) {this.taxID = taxID;}
 
     public int addProperty(String name, String city, double rent, String owner) {
-        return 0;
+        return 1;
+    }
+
+    public int addProperty(Property p){
+    	return 1;
     }
 
     public double getTotalRent() {
@@ -105,16 +109,16 @@ public class ManagementCompany {
     public String toString(){
 
         double totalManagementFeePer = 0.0;
-        String ManagementCompanyInfo = "Management Company " + name + "\n\n";
+        String ManagementCompanyInfo = "Management Company: " + name + "Tax ID: " + taxID + "\n\n";
+
 
 
         for(int i =0; i<MAX_PROPERTY; i++){
             ManagementCompanyInfo += "Property " + (i+1) + "\n\n";
 
-            ManagementCompanyInfo += "Tax ID: " + properties[i].getTaxID() + '\n';
             ManagementCompanyInfo += "Property Name: " + properties[i].getPropertyName() + '\n';
             ManagementCompanyInfo += "City: " + properties[i].getCity() + '\n';
-            ManagementCompanyInfo += "Owner: " + properties[i].Owner() + '\n';
+            ManagementCompanyInfo += "Owner: " + properties[i].getOwner() + '\n';
             ManagementCompanyInfo += "Cost of rent: " + properties[i].getRentAmount() + '\n';
         }
             ManagementCompanyInfo += '\n' + "Total Management Fee: " + totalManagementFeePer;
