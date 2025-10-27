@@ -38,12 +38,57 @@ public class Plot {
 
     //reminder -> fix
     //check coordinates & size for overlap and encompass
+    //check if the this.plot overlaps the parameter plot
     public boolean overlaps(Plot plot){
-        return true;
+        boolean pointInPlot = false;
+
+        int PlotX = this.plot.x;
+        int PlotY = this.plot.y; 
+        int plotWidth = this.plot.width;
+        int plotDepth = this.plot.depth;
+  
+        int newPlotX =  plot.x;
+        int newPlotY = plot.y;
+        int newPlotWidth = plot.width;
+        int newPlotDepth = plot.depth;
+           
+         
+
+        //check if this.plot coordinate is in parameter plot
+ 
+
+  
+        //placeholder
+        return false;
     }
 
-    public boolean encompases(Plot plot){
-        return true;
+    //this checks if the parameter plot is wtihin this.plot
+
+    public boolean encompasses(Plot plot){
+        boolean isInXRange = false;
+        boolean isInYRange = false;
+
+        
+
+        if(plot.x >= this.plot.x && (plot.x + plot.width) <= (this.plot.x + this.plot.width)){
+            isInXRange = true;
+        }
+
+        if(plot.y >= this.plot.y && (plot.y + plot.depth) <= (this.plot.y + this.plot.depth)){
+            isInXRange = true;
+        }
+
+
+        if(isInXRange && isInYRange){
+            return true;
+        }
+             
+
+        return false;
     }
+
+
+
+    
 
 }
