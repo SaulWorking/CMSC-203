@@ -1,3 +1,17 @@
+/*
+ * Class: CMSC203 
+ * Instructor: Huseyin Agyun
+ * Description: (Give a brief description for each Class)
+ * Due: 10/28/2025
+ * Platform/compiler: JDK 21
+ * I pledge that I have completed the programming 
+assignment independently. 
+ * I have not copied the code from a student or any source. 
+ * I have not given my code to any student.
+ * Print your Name here: Thien Dinh 
+*/
+
+
 public class Property {
 
     private String city;

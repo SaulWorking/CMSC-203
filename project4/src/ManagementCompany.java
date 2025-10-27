@@ -1,10 +1,23 @@
-import java.util.Properties;
+/*
+ * Class: CMSC203 
+ * Instructor: Huseyin Agyun
+ * Description: (Give a brief description for each Class)
+ * Due: 10/28/2025
+ * Platform/compiler: JDK 21
+ * I pledge that I have completed the programming 
+assignment independently. 
+ * I have not copied the code from a student or any source. 
+ * I have not given my code to any student.
+ * Print your Name here: Thien Dinh 
+*/
+
 
 public class ManagementCompany {
 
     public static final int MAX_PROPERTY = 5;
     public static final int MGMT_DEPTH = 10;
     public static final int MGMT_WIDTH = 10;
+    
 
     private String name;
     private String taxID;
@@ -26,7 +39,7 @@ public class ManagementCompany {
     }
 
     public ManagementCompany(String name, String taxID, double mgmFeePer) {
-        this(name, taxID, mgmFeePer,0,0,MGMT_WIDTH, MGMT_DEPTH);
+        this(name, taxID, mgmFeePer,1,1,MGMT_WIDTH, MGMT_DEPTH);
     }
 
     public ManagementCompany(String name, String taxID, double mgmFeePer, int x, int y, int width, int depth) {
@@ -66,7 +79,7 @@ public class ManagementCompany {
     
     
     public int addProperty(String name, String city, double rent, String owner){
-        return addProperty(name,city,rent,owner,0,0,0,0);
+        return addProperty(name,city,rent,owner,0,0,1,1);
     }
 
 
@@ -77,82 +90,64 @@ public class ManagementCompany {
 
 
     public int addProperty(Property p){
-System.out.println(properties.length);
 
-System.out.println("Full ChecK");
 
 
         //if property full
         if(isPropertiesFull()){
             return -1;
         }
-System.out.println("EXist ChecK");
 
         //if not exist
         if(p == null){
 
+        	
             return -2;	
         }
-System.out.println("Encompass ChecK");
 
-        //not fleshed out function yet
         if(!this.plot.encompasses(p.getPlot())){
-
             return -3;	
         }
-System.out.println("Overlap ChecK");
 
 
             //find available index
-            int propIndex = MAX_PROPERTY - 1;
+            int propIndex = 0;
 
-            for(int i=0; i<MAX_PROPERTY; i++){
+            for(int i=0; i<numberOfProperties; i++){
                 if(properties[i] == null){
                     propIndex = i;
                     break;
                 }
             }
-System.out.println("ADDING PROPERTY CHECK");
 
         this.properties[propIndex] = new Property(p);	
 
-System.out.println("INCREASE PROPERTY CHECK");
 
         numberOfProperties++;
-
             
-            //check if THIS property oveerlaps the OTHERs 
-            for(int i =0;  i<MAX_PROPERTY-1; i++){
+            //check if THIS NEW property oveerlaps the OTHERs 
+            for(int i =0;  i<numberOfProperties; i++){
                 if(properties[i] != null && i != propIndex){
                     Plot newPlot = this.properties[propIndex].getPlot();
-                    Plot plot = properties[i].getPlot();
+                    Plot plot = this.properties[i].getPlot();
 
                     if(newPlot.overlaps(plot)){
                             return -4;
-                    }
+                    }	
                 }
             }
-
-
-
-
-        System.out.println("number of properties: " + numberOfProperties);
-
-
+            
         return propIndex;
     }
- 
-
-	
-
 
     //g
     public double getTotalRent() {
         double totalRent = 0.0;
 
-            for(int i=0; i<MAX_PROPERTY; i++){
+            for(int i=0; i<numberOfProperties; i++){
                 if(properties[i] != null){
                     totalRent += properties[i].getRentAmount();	
+                    System.out.println(i);
                 }
             }
             
@@ -165,7 +160,7 @@ System.out.println("INCREASE PROPERTY CHECK");
         double highestRent =0.0;
             int propertyNumber = 0;	    
 
-        for(int num = 0; num<MAX_PROPERTY; num++){
+        for(int num = 0; num<numberOfProperties; num++){
             if(properties[num] != null){
                 double currentRent = properties[num].getRentAmount();
             if(currentRent > highestRent){
@@ -180,20 +175,32 @@ System.out.println("INCREASE PROPERTY CHECK");
     }
 
     public void removeLastProperty() {
-        int lastProperty = MAX_PROPERTY - 1;
-        properties[lastProperty] = null;
+    	
+    	int lastIndex = 0;
+
+        for(int i=0; i<numberOfProperties; i++){
+            if(properties[i] != null){
+            	lastIndex = i;
+
+            }
+        }
+        
         numberOfProperties--;
+    
+        properties[lastIndex] = null;
     }
 
-    public boolean isPropertiesFull() {
+    public boolean isPropertiesFull() { 
 
-    
         if(numberOfProperties == MAX_PROPERTY){
             return true;
         }
         return false;
     }
 
+    public int getPropertiesCount() {
+    	return numberOfProperties;
+    }
 
 
     public boolean isManagementFeeValid() {
@@ -207,20 +214,27 @@ System.out.println("INCREASE PROPERTY CHECK");
     public String toString(){
 
         double totalManagementFeePer = 0.0;
-        String ManagementCompanyInfo = "Management Company: " + name + " Tax ID: " + taxID +"\n\n";
+        double rate = mgmFeePer/100;
+        
+		String ManagementCompanyInfo = "List of the properties for " + name + ", taxID: " + taxID + "\n"; 
 
+			   ManagementCompanyInfo += "______________________________________________________";
+				
         for(int i =0; i<MAX_PROPERTY; i++){
             if(properties[i] != null){
-
-                ManagementCompanyInfo += "\nProperty:" + (i+1)+"\n\n";
-
-                ManagementCompanyInfo += "Property Name: " + properties[i].getPropertyName()+"\n";
-                ManagementCompanyInfo += "City: " + properties[i].getCity()+"\n";
-                ManagementCompanyInfo += "Owner: " + properties[i].getOwner()+"\n";
-                ManagementCompanyInfo += "Cost of rent: " + properties[i].getRentAmount()+"\n";
+            	
+            	ManagementCompanyInfo +='\n' + 
+            							properties[i].getPropertyName()+ "," + 
+										properties[i].getCity()+"," +
+										properties[i].getOwner()+"," + 
+										properties[i].getRentAmount();
+										
+            	totalManagementFeePer += properties[i].getRentAmount() * rate;
             }
-        }
-                ManagementCompanyInfo += "Total Management Fee: " + totalManagementFeePer;
+        }	
+			
+ 			  ManagementCompanyInfo += "\n______________________________________________________\n\n";
+              ManagementCompanyInfo += " total management Fee: " + totalManagementFeePer;
 
         return ManagementCompanyInfo;
     }
