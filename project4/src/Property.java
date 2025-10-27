@@ -45,11 +45,6 @@ public class Property {
     public String getPropertyName() {return propertyName;}
     public double getRentAmount() {return rentAmount;}
 
-    public void setCity(String city) {this.city = city;}
-    public void setOwner(String owner) {this.owner = owner;}
-    public void setPlot(Plot plot) {this.plot = plot;}
-    public void setPropertyName(String propertyName) {this.propertyName = propertyName;}
-    public void setRentAmount(double rentAmount) {this.rentAmount = rentAmount;}
 
     public String toString(){
         String propertyInfo = propertyName + "," + 

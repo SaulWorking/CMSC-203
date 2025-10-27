@@ -62,13 +62,6 @@ public class ManagementCompany {
     public Property[] getProperties() {return properties;}
     public String getTaxID() {return taxID;}
 
-    public void setMgmFeePer(double mgmFeePer) {this.mgmFeePer = mgmFeePer;}
-    public void setName(String name) {this.name = name;}
-    public void setNumberOfProperties(int numberOfProperties) {this.numberOfProperties = numberOfProperties;}
-    public void setPlot(Plot plot) {this.plot = plot;}
-    public void setProperties(Property[] properties) {this.properties = properties;}
-    public void setTaxID(String taxID) {this.taxID = taxID;}
-
 	
     
     
@@ -195,15 +188,13 @@ System.out.println("INCREASE PROPERTY CHECK");
     public boolean isPropertiesFull() {
 
     
-        if(getPropertiesCount() == MAX_PROPERTY){
+        if(numberOfProperties == MAX_PROPERTY){
             return true;
         }
         return false;
     }
 
-    public int getPropertiesCount() {
-        return this.numberOfProperties;
-    }
+
 
     public boolean isManagementFeeValid() {
 

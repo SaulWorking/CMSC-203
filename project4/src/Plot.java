@@ -42,15 +42,25 @@ public class Plot {
     public boolean overlaps(Plot plot){
         boolean pointInPlot = false;
 
-        int PlotX = this.plot.x;
-        int PlotY = this.plot.y; 
-        int plotWidth = this.plot.width;
-        int plotDepth = this.plot.depth;
+        int PlotX = this.x;
+        int PlotY = this.y; 
+        int plotWidth = this.width;
+        int plotDepth = this.depth;
+        int PlotX1;
+        int PlotY1;
+        int PlotX2;
+        int PlotY2;
+        int PlotX3;
+        int PlotY3;
+        int PlotX4;
+        int PlotY4;
   
         int newPlotX =  plot.x;
         int newPlotY = plot.y;
         int newPlotWidth = plot.width;
         int newPlotDepth = plot.depth;
+
+
            
          
 
@@ -70,11 +80,11 @@ public class Plot {
 
         
 
-        if(plot.x >= this.plot.x && (plot.x + plot.width) <= (this.plot.x + this.plot.width)){
+        if(plot.x >= this.x && (plot.x + plot.width) <= (this.x + this.width)){
             isInXRange = true;
         }
 
-        if(plot.y >= this.plot.y && (plot.y + plot.depth) <= (this.plot.y + this.plot.depth)){
+        if(plot.y >= this.y && (plot.y + plot.depth) <= (this.y + this.depth)){
             isInXRange = true;
         }
 
