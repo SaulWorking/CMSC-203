@@ -26,7 +26,7 @@ public class FXDriver extends Application {
 		final int yPos = 400;
 		//student Task #1:
 		//  instantiate the FXMainPane, name it root
-		FXMainPane4 root = new FXMainPane4();
+		FXMainPane root = new FXMainPane();
 		
 		
 		stage.setScene(new Scene(root,xPos,yPos));
