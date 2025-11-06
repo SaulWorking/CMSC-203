@@ -34,8 +34,8 @@ import java.io.File;
 	public static double getTotal(double[][] data){
 		double sum = 0;
 
-		for(int row=0; row<data[row].length;i++){
-			for(int col =0 ; col<data[row][].length; col++){
+		for(int row=0; row<data.length;i++){
+			for(int col =0 ; col<data[row].length; col++){
 				sum+= Double.parseDouble(data[row][col]);	
 			}	
 		}
