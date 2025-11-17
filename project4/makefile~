@@ -1,7 +1,7 @@
 # www.cs.swarthmore.edu/~newhall/unixhelp/javamakefiles.html
 
 
-JFXLIB = ../javaFX/lib
+JFXLIB = ../project4/lib
 JFXMOD = javafx.controls,javafx.fxml
 
 JC = java

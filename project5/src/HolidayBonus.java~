@@ -13,7 +13,7 @@ public class HolidayBonus{
 	public static double calculuateTotalHolidayBonus(double[][] data){
 		double holidayBonus = 0.0;
 
-		return holidayBonus;	
+		reutrn holidayBonus;	
 	
 	}
 }
