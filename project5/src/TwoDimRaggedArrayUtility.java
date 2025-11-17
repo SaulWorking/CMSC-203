@@ -34,6 +34,14 @@ import java.io.FileNotFoundException;
 	
 
 	public static void writeToFile(double[][] data, File outputFile) throws FileNotFoundException{
+
+		//for however many rows,
+
+		//read one row of array
+		//write to file for one line
+		//
+		//do this
+		
 	
 	}
 
