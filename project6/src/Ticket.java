@@ -10,6 +10,7 @@ public class Ticket {
     }
 
     // Calculate ticket price based on day of week and age
+
         // Apply discounts for weekdays
         // Apply age-based discounts
 

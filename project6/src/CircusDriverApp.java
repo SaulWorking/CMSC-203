@@ -32,12 +32,20 @@ public class CircusDriverApp {
                 boolean validInput = false;
 
                 // Retry until valid input is received
+		choice = validateInput(scanner);
+
                 while (!validInput) {
                     try {
-                        ........................
-                        ........................
+
+			choice = validateInput(scanner);
+
+			validInput = true;
+
                     } catch (CustomInputMismatchException e) {
-                        ........................ // Print error message 
+
+                       // Print error message 
+			    System.out.println("Squid game failure! Try again");
+			    validInput = false;
                     }
                 }
    
@@ -107,10 +115,14 @@ public class CircusDriverApp {
     
     private static int validateInput(Scanner scanner) throws CustomInputMismatchException {
         try {
-            ......................
+		int realNun = scanner.nextInt();
+			
+		return realNum;
         } catch (InputMismatchException e) {
-            .....................................
-            throw new ..........................................;
+		System.out.println("Please try a integer value 1 through 11");
+		
+	       //test. after constructor try again.	
+            throw new InputMismatchException("ValidateInput fail."); 
         }
     }
     
