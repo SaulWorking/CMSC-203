@@ -11,6 +11,25 @@ public class Ticket {
 
     // Calculate ticket price based on day of week and age
 
+    public double calculatePrice() {
+        double finalPrice = basePrice;
+        if(dayOfWeek.equals("saturday") || dayOfWeek.equals("sunday"){
+
+            return finalPrice; 
+        }else{
+            //the regular discount
+            finalPrice = finalPrice * (1 - MONDAY.discount);
+        }
+
+        if(age > 100){
+
+            finalPrice *= 1000;
+
+        }
+
+
+    }
+
         // Apply discounts for weekdays
         // Apply age-based discounts
 
