@@ -8,10 +8,10 @@ JC = java
 .SUFFIXES: .java .class
 
 .java.class:
-	$(JC) --enable-native-access=javafx.graphics --module-path $(JFXLIB) --add-modules $(JFXMOD) $*.java
+	$(JC) $*.java
 
 CLASSES = \
-	src/MgmCompanyGui.java \
+  	  src/CircusDriverApp.java \
 
 default: classes
 

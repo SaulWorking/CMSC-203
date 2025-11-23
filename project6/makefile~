@@ -11,7 +11,7 @@ JC = java
 	$(JC) --enable-native-access=javafx.graphics --module-path $(JFXLIB) --add-modules $(JFXMOD) $*.java
 
 CLASSES = \
-	src/MgmCompanyGui.java \
+  	  src/CircusDriverApp.java \
 
 default: classes
 
