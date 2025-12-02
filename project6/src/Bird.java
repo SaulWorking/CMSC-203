@@ -38,13 +38,15 @@ public class Bird implements Animal {
 	// Compare fields for logical equality
 	boolean equals(Bird bird2){
 
+
+		if(this == null || this.getClass() != bird2.getClass(){
+			return false;
+		}
+
 		if(this == bird2){
 			return true;
 		}
 
-		if(this != null || this.getClass() == bird2.getClass(){
-			return true;
-		}
 		
 		if(this.name == bird2.name && this.age == bird2.age && this.species == bird2.species && this.color == bird2.color){
 			return true;

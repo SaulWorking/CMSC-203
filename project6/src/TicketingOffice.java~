@@ -52,7 +52,7 @@ public class TicketingOffice implements Building {
 	//toString()
     	public String toString(){
 		String info = String.format("Building type: %s, Length: %f, Width: %f, Color, %s",buildingType,length,width,color);
-		return info;	
+	
 	}
 
 }

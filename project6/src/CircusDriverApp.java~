@@ -38,13 +38,12 @@ public class CircusDriverApp {
                     try {
 
 			choice = validateInput(scanner);
-
 			validInput = true;
 
                     } catch (CustomInputMismatchException e) {
-
+			
                        // Print error message 
-			    System.out.println("Squid game failure! Try again");
+			    System.out.println(e.message());
 			    validInput = false;
                     }
                 }
@@ -115,14 +114,13 @@ public class CircusDriverApp {
     
     private static int validateInput(Scanner scanner) throws CustomInputMismatchException {
         try {
-		int realNun = scanner.nextInt();
+		int realNum = scanner.nextInt();
 			
 		return realNum;
         } catch (InputMismatchException e) {
 		System.out.println("Please try a integer value 1 through 11");
 		
 	       //test. after constructor try again.	
-            throw new InputMismatchException("ValidateInput fail."); 
         }
     }
     
@@ -220,7 +218,7 @@ public class CircusDriverApp {
             scanner.nextLine();
 
             // Calculate discounts and total price for this batch of tickets
-
+	    
 
             // Add to total amount
 

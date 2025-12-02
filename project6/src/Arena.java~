@@ -42,9 +42,6 @@ public class Arena implements Building {
     @Override
 	String toString(){
 		String info = String.format("Building type: %s, length: %f, width: %f, color: %s",buildingType,length,width,color);
-		
-		
-		
 		return info;
 	}
  

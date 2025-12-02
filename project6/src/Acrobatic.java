@@ -7,7 +7,7 @@ public class Acrobatic extends Person {
   }
 
     public String getJob() {
-	return new String(job);
+	return job;
     }
 
     @Override

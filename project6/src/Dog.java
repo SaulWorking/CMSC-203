@@ -47,12 +47,11 @@ public class Dog implements Animal, Cloneable {
     @Override
 	boolean equals(Dog dog2){
 	
-		if(this == dog2){
-			return true;
-		}
-
 		if(this == null || this.getClass() != dog.getClass()){
 			return false;
+		}
+		if(this == dog2){
+			return true;
 		}
 
 		if(this.name == dog2.name && this.age == dog2.age && this.species == dog2.species && this.color == dog2.color){
