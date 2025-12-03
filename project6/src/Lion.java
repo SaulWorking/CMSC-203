@@ -15,22 +15,22 @@ public class Lion implements Animal {
         this.color = color;
     }
     @Override
-	void move(){
+	public void move(){
 		System.out.println("LION MOVE G12");
 	}
 	
     @Override
-	void makeSound(){
+	public void makeSound(){
 		System.out.println("ROAR");
 	}
 
     @Override
-	String getName(){
+	public String getName(){
 		return this.name;
 	}
 	
     @Override
-	int getAge(){
+	public int getAge(){
 		return this.age;	
 	}
 
@@ -40,8 +40,10 @@ public class Lion implements Animal {
 		// Compare fields for logical equality
 
     @Override
-	boolean equals(Lion lion2){
+	public boolean equals(Object obj){
 	
+		Lion lion2 = (Lion) obj;
+
 		if(this == lion2){
 			return true;
 		}
@@ -53,10 +55,13 @@ public class Lion implements Animal {
 		if(this.name == lion2.name && this.age == lion2.age && this.species == lion2.species && this.color == lion2.color){
 			return true;
 		}
+
+		//IF NOT TRUE
+		return false;
 	}
 	
     @Override
-	String toString(){
+	public String toString(){
 		String info = "";
 		info = name + ", " + age + ", " + species + ", " + color;
 		return info;

@@ -7,17 +7,17 @@ public class LionJUnitTest {
     private Lion lion;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         lion = new Lion("Simba", 6, "Panthera leo", "Golden");
     }
 
     @Test
-    void testGetName() {
+    public void testGetName() {
         assertEquals("Simba", lion.getName());
     }
 
     @Test
-    void testEqualsWithSameAttributes() {
+    public void testEqualsWithSameAttributes() {
         Lion sameLion = new Lion("Simba", 6, "Panthera leo", "Golden");
         assertEquals(lion, sameLion);
     }

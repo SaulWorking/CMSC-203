@@ -12,7 +12,7 @@ public class Acrobatic extends Person {
 
     @Override
     public String toString() {
-        return String.format("Name: %s, age: %d, years worked: %d, job: %s",name,age,yearsWorked,job);      
+        return String.format("Name: %s, age: %d, years worked: %d, job: %s",super.getName(),super.getAge(),super.getYearsWorked(),job);      
     }   
   
 }

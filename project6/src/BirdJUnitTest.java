@@ -7,24 +7,24 @@ public class BirdJUnitTest {
     private Bird bird;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         bird = new Bird("Tweety", 2, "Canary", "Yellow");
     }
 
     @Test
-    void testGetName() {
+    public void testGetName() {
         assertEquals("Tweety", bird.getName());
     }
 
 
     @Test
-    void testEqualsWithSameAttributes() {
+    public void testEqualsWithSameAttributes() {
         Bird sameBird = new Bird("Tweety", 2, "Canary", "Yellow");
         assertEquals(bird, sameBird);
     }
 
     @Test
-    void testNotEqualsWithDifferentName() {
+    public void testNotEqualsWithDifferentName() {
         Bird different = new Bird("Polly", 2, "Canary", "Yellow");
         assertNotEquals(bird, different);
     }

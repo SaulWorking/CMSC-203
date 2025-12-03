@@ -1,13 +1,14 @@
 //Each day has a specific discount rate associated with it.
 //Weekdays have 10% discount, weekends have no discount
 public enum DayOfWeek {
-    MONDAY(0.10), 
+    MONDAY(0.10),
     TUESDAY(0.10),
     WEDNESDAY(0.10),
     THURSDAY(0.10),
     FRIDAY(0.10),
-    SATURDAY(0.0),
-    SUNDAY(0.0);
+    SATURDAY(0.00),
+    SUNDAY(0.00);
+
 
     private final double discount; // instance variable
 

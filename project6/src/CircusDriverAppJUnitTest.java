@@ -10,12 +10,12 @@ class CircusDriverAppJUnitTest {
     private Circus circus;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         circus = new Circus();
     }
 
     @Test
-    void testAddDog() {
+    public void testAddDog() {
         Dog dog = new Dog("Shila", 3, "Golden Retriever", "Brown");
         circus.addAnimal(dog);
         List<Animal> animals = circus.getAnimals();

@@ -8,12 +8,12 @@ class ArenaJUnitTest {
     private Arena arena;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         arena = new Arena("Blue", 100.0, 50.0);
     }
 
     @Test
-    void testConstructorAndInitialValues() {
+    public void testConstructorAndInitialValues() {
         assertEquals("Blue", arena.getColor(), "Initial color is incorrect.");
         assertEquals(100.0, arena.getLength(), 0.001, "Initial length is incorrect.");
         assertEquals(50.0, arena.getWidth(), 0.001, "Initial width is incorrect.");

@@ -14,33 +14,32 @@ public class Arena implements Building {
     }
 
     @Override
-	void setSize(double length, double width){
+	public void setSize(double length, double width){
 		this.length = length;
 		this.width = width;	
 	}
 
     @Override
-	double getLength(){return this.length;}
+	public double getLength(){return this.length;}
 
     @Override
-	double getWidth(){return this.width;}
+	public double getWidth(){return this.width;}
     
 
     @Override
-	void setColor(String color){this.color = color;}
+	public void setColor(String color){this.color = color;}
+    @Override
+	public String getColor(){return this.color;}
 
     @Override
-	String getColor(){return this.color;}
-
-    @Override
-	void setBuildingType(String buildingType){this.buildingType = buildingType;}
+	public void setBuildingType(String buildingType){this.buildingType = buildingType;}
 
 
     @Override
-	String getBuildingType(){return this.buildingType;}
+	public String getBuildingType(){return this.buildingType;}
    
     @Override
-	String toString(){
+	public String toString(){
 		String info = String.format("Building type: %s, length: %f, width: %f, color: %s",buildingType,length,width,color);
 		return info;
 	}

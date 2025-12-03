@@ -16,30 +16,31 @@ public class Bird implements Animal {
     }
 
     @Override
-	void move(){
+	public void move(){
 		System.out.println("Bird moves D12");
 	}
     
     @Override
-	void makeSound(){
+	public void makeSound(){
 		System.out.println("TWEET TWEET, TWEET TWEET");
 	}
 	
     @Override
-	    String getName(){return this.name;}
+	    public String getName(){return this.name;}
 
     @Override
-	    int getAge(){return this.age;}
+	    public int getAge(){return this.age;}
 	
     @Override
 
 	// Check for reference equality
 	// Check for null or different class
 	// Compare fields for logical equality
-	boolean equals(Bird bird2){
+	public boolean equals(Object obj){
 
-
-		if(this == null || this.getClass() != bird2.getClass(){
+    Bird bird2 = (Bird) obj;
+		
+		if(this == null || this.getClass() != bird2.getClass()){
 			return false;
 		}
 
@@ -52,12 +53,13 @@ public class Bird implements Animal {
 			return true;
 		}
 
-	
+		//IF NOT TRUE
+		return false;	
 	}
 
 	
     @Override
-	String toString(){
+	public String toString(){
 		String info = String.format("Name: %s, age: %d, species: %s, color: %s",name,age,species,color);
 		return info;
 	}

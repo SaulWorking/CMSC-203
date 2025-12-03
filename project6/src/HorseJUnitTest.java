@@ -7,23 +7,23 @@ public class HorseJUnitTest {
     private Horse horse;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         horse = new Horse("Spirit", 4, "Mustang", "Brown");
     }
 
     @Test
-    void testGetAge() {
+    public void testGetAge() {
         assertEquals(4, horse.getAge());
     }
 
     @Test
-    void testNotEqualsWithDifferentAge() {
+    public void testNotEqualsWithDifferentAge() {
         Horse different = new Horse("Spirit", 5, "Mustang", "Brown");
         assertNotEquals(horse, different);
     }
 
     @Test
-    void testToStringContainsAllFields() {
+    public void testToStringContainsAllFields() {
         String toStringOutput = horse.toString();
         assertTrue(toStringOutput.contains("Spirit"));
         assertTrue(toStringOutput.contains("4"));

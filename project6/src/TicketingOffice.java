@@ -36,7 +36,7 @@ public class TicketingOffice implements Building {
 
     @Override
 	//getColor()
-    	public double getColor(){return this.color;}
+    	public String getColor(){return this.color;}
 
     @Override
 	//setBuildingType()

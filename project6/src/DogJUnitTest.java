@@ -8,17 +8,17 @@ public class DogJUnitTest {
     private Dog dog;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         dog = new Dog("Buddy", 5, "Labrador", "Brown");
     }
 
     @Test
-    void testGetAge() {
+    public void testGetAge() {
         assertEquals(5, dog.getAge());
     }
 
     @Test
-    void testEqualsSameFields() {
+    public void testEqualsSameFields() {
         Dog anotherDog = new Dog("Buddy", 5, "Labrador", "Brown");
         assertEquals(dog, anotherDog);
     }

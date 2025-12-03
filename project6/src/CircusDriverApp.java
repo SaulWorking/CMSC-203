@@ -32,13 +32,12 @@ public class CircusDriverApp {
                 boolean validInput = false;
 
                 // Retry until valid input is received
-		choice = validateInput(scanner);
 
                 while (!validInput) {
                     try {
 
-			choice = validateInput(scanner);
-			validInput = true;
+                        choice = validateInput(scanner);
+                        validInput = true;
 
                     } catch (CustomInputMismatchException e) {
 			
@@ -84,14 +83,14 @@ public class CircusDriverApp {
                         break;
                     case 9:
                         System.out.println("Sorting animals by name...");
-                        circus.sortAnimalsByName();
+  //                      circus.sortAnimalsByName();
                         System.out.println("Animals sorted by name.");
                         break;                       
                     case 10:
                         System.out.print("Enter the name of the animal to search: ");
                         scanner.nextLine(); // Consume the leftover newline
                         String searchName = scanner.nextLine();
-                        circus.searchAnimalByName(searchName);
+                     //   circus.searchAnimalByName(searchName);
                         break;
                     case 11:
                         exit = true;
@@ -114,26 +113,193 @@ public class CircusDriverApp {
     
     private static int validateInput(Scanner scanner) throws CustomInputMismatchException {
         try {
-		int realNum = scanner.nextInt();
+            int realNum = scanner.nextInt();
 			
-		return realNum;
+            return realNum;
         } catch (InputMismatchException e) {
 		System.out.println("Please try a integer value 1 through 11");
-		
+            scanner.nextLine();
 	       //test. after constructor try again.	
         }
+        return -1;
     }
     
     // handleAddAnimal()
+    private static void handleAddAnimal(Circus circus, Scanner scanner) {
+        try{        
+            System.out.print("Enter animal type (bird, dog, horse, Lion): ");
+            String animalType = scanner.next();
+
+            switch(animalType.toLowerCase()){
+                case "bird":
+                    System.out.print("Enter name: ");
+                    String birdName = scanner.next();
+
+                    System.out.print("Enter age: ");
+                    int birdAge = scanner.nextInt();
+
+                    System.out.print("Enter species: ");
+                    String birdSpecies = scanner.next();
+
+                    System.out.print("Enter color: ");
+                    String birdColor = scanner.next();
+
+                    circus.addAnimal(new Bird(birdName, birdAge, birdSpecies, birdColor));
+                    return;
+                                
+
+                case "dog":
+                    System.out.print("Enter name: ");
+                    String dogName = scanner.next();
+
+                    System.out.print("Enter age: ");
+                    int dogAge = scanner.nextInt();
+
+                    System.out.print("Enter species: ");
+                    String dogSpecies = scanner.next();
+
+                    System.out.print("Enter color: ");
+                    String dogColor = scanner.next();
+
+                    circus.addAnimal(new Dog(dogName, dogAge, dogSpecies, dogColor));
+                    return;
+                
+                case "horse":
+                    System.out.print("Enter name: ");
+                    String horseName = scanner.next();
+
+                    System.out.print("Enter age: ");
+                    int horseAge = scanner.nextInt();
+
+                    System.out.print("Enter species: ");
+                    String horseSpecies = scanner.next();
+
+                    System.out.print("Enter color: ");
+                    String horseColor = scanner.next();
+
+                    circus.addAnimal(new Horse(horseName, horseAge, horseSpecies, horseColor));
+                    return;
+            
+             case "lion":
+                    System.out.print("Enter name: ");
+                    String lionName = scanner.next();
+
+                    System.out.print("Enter age: ");
+                    int lionAge = scanner.nextInt();
+
+                    System.out.print("Enter species: ");
+                    String lionSpecies = scanner.next();
+
+                    System.out.print("Enter color: ");
+                    String lionColor = scanner.next();
+
+                    circus.addAnimal(new Lion(lionName, lionAge, lionSpecies, lionColor));
+                    return;
+                default:
+                    System.out.println("Invalid animal type. Please try again.");
+                    return;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input type. Please try again.");
+            scanner.nextLine();
+        }
+    }
 	
     // handleAddPerson()
+    private static void handleAddPerson(Circus circus, Scanner scanner) {
+        System.out.println("entering person type(Acrobatic, Clerk,)");
+        String job = scanner.next();
+        String name;
+        int age;
+        int yearsWorked;
+        try{
+        switch(job.toLowerCase()){
+            case "acrobatic":
+                System.out.print("Enter name: ");
+                 name = scanner.next();
+
+                System.out.print("Enter age: ");
+                age = scanner.nextInt();
+
+                System.out.print("Enter years worked: ");
+                 yearsWorked = scanner.nextInt();
+
+                circus.addPerson(new Acrobatic(name, age, yearsWorked, job));
+                return;
+
+            case "clerk":
+                System.out.print("Enter name: ");
+                 name = scanner.next();
+
+                System.out.print("Enter age: ");
+                age = scanner.nextInt();
+
+                System.out.print("Enter years worked: ");
+                yearsWorked = scanner.nextInt();
+
+                circus.addPerson(new Clerk(name, age, yearsWorked, job));
+                return;
+
+            default:
+                System.out.println("Invalid person type. Please try again.");
+                return;
+        }
+    } catch (InputMismatchException e) {
+            System.out.println("Invalid input type. Please try again.");
+            scanner.nextLine();
+        }
+    }
 	
     // handleAddBuilding()
+    private static void handleAddBuilding(Circus circus, Scanner scanner) {
+        System.out.println("Enter building type (arena, ticketingoffice): ");
+        String buildingType = scanner.next();
+        String color; 
+        int length, width;
+        try{
+        switch(buildingType.toLowerCase()){
+            case "arena":
+                System.out.print("Enter color: ");
+                 color = scanner.next();
+          
+                System.out.print("Enter length: ");
+                 length = scanner.nextInt();
+
+                System.out.print("Enter width: ");
+                 width = scanner.nextInt();
+
+                circus.addBuilding(new Arena(color, length, width));
+                return;
+
+            case "ticketingoffice":
+                System.out.print("Enter color: ");
+                 color = scanner.next();
+          
+                System.out.print("Enter length: ");
+                 length = scanner.nextInt();
+
+                System.out.print("Enter width: ");
+                 width = scanner.nextInt();
+
+                circus.addBuilding(new TicketingOffice(color, length, width));
+                return;
+
+            default:
+                System.out.println("Invalid building type. Please try again.");
+                return;
+        }
+        }catch(InputMismatchException e){   
+            System.out.println("Invalid input type. Please try again.");
+            scanner.nextLine();
+        }
+    
+    }
 
 
 
 
     private static void handleGenerateTicket(Scanner scanner) {
+
         double totalAmount = 0;
         double basePrice;
         StringBuilder ticketDetails = new StringBuilder();
@@ -218,13 +384,18 @@ public class CircusDriverApp {
             scanner.nextLine();
 
             // Calculate discounts and total price for this batch of tickets
-	    
+            double totalDiscount = dayDiscount + customerDiscount + seatDiscount;
+            double ticketPrice = (basePrice * seatMultiplier) * (1 - totalDiscount) * numberOfTickets;
+
 
             // Add to total amount
+            totalAmount += ticketPrice;
+
+
 
             // Append details of this batch to the ticket details
-
-            // Append details of this batch to the ticket details
+            ticketDetails.append(String.format("Day: %s, Customer Type: %s, Seat Location: %d, Number of Tickets: %d, Price: $%.2f%n",
+                    selectedDay, customerTypeName, seatLocation, numberOfTickets, ticketPrice));
             
 
             // Ask user to add more tickets

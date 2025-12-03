@@ -17,22 +17,22 @@ public class Horse implements Animal {
     }
 
     @Override
-	void move(){
+	public void move(){
 		System.out.println("HORSE MOVE Q3");
 	}
 	
     @Override
-	void makeSound(){
+	public void makeSound(){
 		System.out.println("GALLOP");
 	}
 
     @Override
-	String getName(){
+	public 	String getName(){
 		return this.name;
 	}
 	
     @Override
-	int getAge(){
+	public int getAge(){
 		return this.age;	
 	}
 
@@ -42,8 +42,10 @@ public class Horse implements Animal {
 		// Compare fields for logical equality
 
     @Override
-	boolean equals(Horse horse2){
+	public boolean equals(Object obj){
 	
+		Horse horse2 = (Horse) obj;
+
 		if(this == horse2){
 			return true;
 		}
@@ -55,10 +57,13 @@ public class Horse implements Animal {
 		if(this.name == horse2.name && this.age == horse2.age && this.species == horse2.species && this.color == horse2.color){
 			return true;
 		}
+		
+		//IF NOT TRUE
+		return false;
 	}
 	
     @Override
-	String toString(){
+	public String toString(){
 		String info = "";
 		info = name + ", " + age + ", " + species + ", " + color;
 		return info;

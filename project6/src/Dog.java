@@ -16,28 +16,28 @@ public class Dog implements Animal, Cloneable {
     }
 
     @Override
-	void move(){
+	public void move(){
 		System.out.println("DOG MOVE to D14");
 	}
 	
     @Override
-	void makeSound(){
+	public void makeSound(){
 		System.out.println("ROOF");
 	}
 
     @Override
-	void getName(){
+	public String getName(){
 		return this.name;
 	}
 	
     @Override
-	void getAge(){
+	public int getAge(){
 		return this.age;	
 	}
 
     @Override
-	Dog clone(){
-		newDog = new Dog(name,age,species,color);
+	public Dog clone(){
+		Dog newDog = new Dog(name,age,species,color);
 		return newDog;
 	}
 		// Check for reference equality
@@ -45,9 +45,11 @@ public class Dog implements Animal, Cloneable {
 		// Compare fields for logical equality
 
     @Override
-	boolean equals(Dog dog2){
-	
-		if(this == null || this.getClass() != dog.getClass()){
+	public boolean equals(Object obj){
+
+		Dog dog2 = (Dog) obj;
+
+		if(this == null || this.getClass() != dog2.getClass()){
 			return false;
 		}
 		if(this == dog2){
@@ -57,10 +59,12 @@ public class Dog implements Animal, Cloneable {
 		if(this.name == dog2.name && this.age == dog2.age && this.species == dog2.species && this.color == dog2.color){
 			return true;
 		}
+		//IF NOT EQUAL
+		return false;
 	}
 	
     @Override
-	String toString(){
+	public String toString(){
 		String info = "";
 		info = name + ", " + age + ", " + species + ", " + color;
 		return info;
