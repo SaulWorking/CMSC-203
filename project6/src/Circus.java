@@ -109,8 +109,19 @@ public class Circus {
       }
     }
     // Search for an animal by name
-    int searchAnimalName(Animal animal){
-        return this.animals.indexOf(animal);
+    // try and use binary search here... (sort the names first)
+    void searchAnimalName(String name){
+	    String animalName;
+	  
+	    for(int i =0; i<animals.size();i++){
+		    animalName = animals.get(i).getName();
+		    if(name.toLowerCase().equals(animalName.toLowerCase())){
+		    	System.out.println(animals.get(i));
+		    }
+	    	
+	    }
+
+        return this.animals.get(animal);
     }
 
     // Add ticket

@@ -128,7 +128,7 @@ public class Circus {
 		age = 22;	
 	}else if(customerType == 3){
 		age = 33;
-	}else if(customerType = 4){
+	}else if(customerType == 4){
 		age = 66;
 	}
 
