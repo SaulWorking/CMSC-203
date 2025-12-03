@@ -2,7 +2,7 @@
 
 
 JFXLIB = ../javaFX/lib
-JFXMOD = javafx.controls,javafx.fxml
+JFXMOD = javafx.controls
 
 JC = java
 .SUFFIXES: .java .class

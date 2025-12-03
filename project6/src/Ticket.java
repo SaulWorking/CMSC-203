@@ -20,7 +20,8 @@ public class Ticket {
             totalDiscount += 0.10; // 10% discount for weekdays
         }
 
-        // no idea why i need ticktets
+        // no idea why i need ticktets. this doesnt account for other things like seat prices. also, age isnt an input. :w
+	
         if(age < 12) {
             totalDiscount += 0.10;
         } else if(age >= 12 && age <= 21) {

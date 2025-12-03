@@ -120,7 +120,18 @@ public class Circus {
     }
 
     // Generate ticket
-    public Ticket generateTicket(String dayOfWeek, double basePrice, int age) {
+    public Ticket generateTicket(String dayOfWeek, double basePrice, int customerType) {
+	    int age = 0;
+	if(customerType ==1){
+		age = 11;	
+	}else if(customerType == 2){
+		age = 22;	
+	}else if(customerType == 3){
+		age = 33;
+	}else if(customerType == 4){
+		age = 66;
+	}
+
         Ticket ticket = new Ticket(dayOfWeek, basePrice, age);  // Pass dayOfWeek, basePrice, age to Ticket constructor
         return ticket;
     }

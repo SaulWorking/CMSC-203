@@ -13,41 +13,27 @@ public class Ticket {
 
     public double calculatePrice() {
         double finalPrice = basePrice;
-	double totalDiscount = 0.0;
-
-
-        if(!day.equals("saturday") || !day.equals("sunday"){
-	    DayOfWeek weekday = MONDAY;
-	    totalDiscount += weekday.getDiscount();
-        }
-
-        if(age > 100){
-		totalDiscount += 0.15;
-        }else if(age >80 && age <=100){
-		totalDiscount += 0.20;
-	
-	}else if(age >60 && age <=80){
-		totalDiscount += 0.15;
-	
-	}else if (age >40 && age <=60){
-		totalDiscount += 0.10;
-	
-	}else if (age >20 && age <=40){
-		totalDiscount += 0.05;
-	
-	}else if (age >0 && age <=20){
-		totalDiscount += 0.02;
-	
-	}else{
-		totalDiscount += 0.0;	
-	}
-
-
-            finalPrice = finalPrice * (1 - totalDiscount);
-    }
+        double totalDiscount = 0.0;
 
         // Apply discounts for weekdays
-        // Apply age-based discounts
+        if(day.equals("monday") || day.equals("tuesday") || day.equals("wednesday") || day.equals("thursday") || day.equals("friday")) {
+            totalDiscount += 0.10; // 10% discount for weekdays
+        }
+
+        // no idea why i need ticktets
+        if(age < 12) {
+            totalDiscount += 0.10;
+        } else if(age >= 12 && age <= 21) {
+            totalDiscount += 0.10; 
+        } else if(age >= 65) {
+            totalDiscount += 0.05;
+        }
+
+        finalPrice = finalPrice * (1 - totalDiscount);
+        return finalPrice;
+    }
+
+
 
     // Display the ticket details
     public void displayTicketDetails() {

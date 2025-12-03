@@ -2,13 +2,13 @@
 
 
 JFXLIB = ../javaFX/lib
-JFXMOD = javafx.controls,javafx.fxml
+JFXMOD
 
 JC = java
 .SUFFIXES: .java .class
 
 .java.class:
-	$(JC) --enable-native-access=javafx.graphics --module-path $(JFXLIB) --add-modules $(JFXMOD) $*.java
+	$(JC) $*.java
 
 CLASSES = \
   	  src/CircusDriverApp.java \

@@ -22,8 +22,10 @@ public class Circus {
 
 
     // Display building
-    void displayBuilding(Building building){
-	    System.out.println(building);
+    void displayAllBuildings(){
+    	for (Building building : buildings) {
+            System.out.println(building.toString());
+        }
     }
 
     // Add person
@@ -32,8 +34,10 @@ public class Circus {
     }
 
     // Display person
-    void displayPerson(Person person){
-    	System.out.println(person);
+    void displayAllPersons(){
+    	for (Person person : persons) {
+            System.out.println(person.toString());
+        }
     }
 
     // Add animal
@@ -42,62 +46,71 @@ public class Circus {
     }
 
     // Display animal using toString() method
-    void displayAnimal(Animal animal){
-    	System.out.println(animal.toString());
+    void displayAllAnimals(){
+    	for (Animal animal : animals) {
+            System.out.println(animal.toString());
+        }
     }
 
     // Selection sort to sort animals by age
-    void sortAnimalAge(){
+    void sortAnimalsByAge(){
 	  for(int i = 0; i<animals.size()-1;i++)
 	  {
 		int min_index = i;
 
-		 for(int j =i+1; j<n;j++)
-		 {
-			Animal animal1age = animals.get(j).getAge(); 
-			Animal animal2age = animals.get(min_index).getAge();	
+      for(int j =i+1; j<animals.size();j++)
+      {
+        int animal1age = animals.get(j).getAge(); 
+        int animal2age = animals.get(min_index).getAge();	
 
-			if(aninmal1age <animal2age)
-			{
-				min_index = j;
-			} 
-		 
-		 }
+              if(animal1age <  animal2age)
+              {
+                min_index = j;
+              } 
+      
+      }
 	  
-	  	int temp = animals.get(j).getAge();
-		animals.get(j).setAge(animals.get(min_index).getAge());
-		animals.get(min_index).setAge(temp);
+  //      int temp = animals.get(j).getAge();
+   //   animals.get(j).setAge(animals.get(min_index).getAge());
+   //   animals.get(min_index).setAge(temp);
 	  }
     }
 
     
     // Selection sort to sort animals by name
     
-    void sortAnimalName(){
+    void sortAnimalByName(){
+    List<Animal> sortedAnimals = new ArrayList<>(animals);
+
 	  for(int i = 0; i<animals.size()-1;i++)
 	  {
-		int min_index = i;
+          int min_index = i;
 
-		 for(int j =i+1; j<n;j++)
-		 {
+          for(int j =i+1; j<animals.size();j++)
+          {
 
-			Animal animal1name = animals.get(j).getName(); 
-			Animal animal2name = animals.get(min_index).getName();	
-			if(animal1name <animal2name)
-			{
-				min_index = j;
-			} 
-		 
-		 }
-	  
-	  	String temp = animals.get(j).getName();
-		animals.get(j).setName(animals.get(min_index).getName());
-		animals.get(min_index).setName(temp);
+                  String animal1name = animals.get(j).getName(); 
+                  String animal2name = animals.get(min_index).getName();	
+                  if(animal1name.compareTo(animal2name) < 0)
+                  {
+                    min_index = j;
+                  } 
+                
+          }
+          
+	  	  String temp = sortedAnimals.get(i).getName();
+        sortedAnimals.get(i).getName().replace(sortedAnimals.get(i).getName(), sortedAnimals.get(min_index).getName());
+        sortedAnimals.get(min_index).getName().replace(sortedAnimals.get(min_index).getName(), temp);
 	  }
+
+      System.out.println("Animals sorted by name:");
+      for (Animal animal : sortedAnimals) {
+          System.out.println(animal.toString());
+      }
     }
     // Search for an animal by name
     int searchAnimalName(Animal animal){
-	 return this.animals.indexOf(animal) 
+        return this.animals.indexOf(animal);
     }
 
     // Add ticket
@@ -107,7 +120,18 @@ public class Circus {
     }
 
     // Generate ticket
-    public Ticket generateTicket(String dayOfWeek, double basePrice, int age) {
+    public Ticket generateTicket(String dayOfWeek, double basePrice, int customerType) {
+	    int age = 0;
+	if(customerType ==1){
+		age = 11;	
+	}else if(customerType == 2){
+		age = 22;	
+	}else if(customerType == 3){
+		age = 33;
+	}else if(customerType = 4){
+		age = 66;
+	}
+
         Ticket ticket = new Ticket(dayOfWeek, basePrice, age);  // Pass dayOfWeek, basePrice, age to Ticket constructor
         return ticket;
     }

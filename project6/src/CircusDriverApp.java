@@ -59,7 +59,7 @@ public class CircusDriverApp {
                         handleAddBuilding(circus, scanner);
                         break;
                     case 4:
-                        handleGenerateTicket(scanner);
+                        handleGenerateTicket(circus, scanner);
                         break;
                     case 5:
                         System.out.println("Displaying all animals:");
@@ -127,7 +127,7 @@ public class CircusDriverApp {
     // handleAddAnimal()
     private static void handleAddAnimal(Circus circus, Scanner scanner) {
         try{        
-            System.out.print("Enter animal type (bird, dog, horse, Lion): ");
+            System.out.print("Enter animal type (bird, dog, horse, lion): ");
             String animalType = scanner.next();
 
             switch(animalType.toLowerCase()){
@@ -270,8 +270,10 @@ public class CircusDriverApp {
 
                 circus.addBuilding(new Arena(color, length, width));
                 return;
-
+	    case "ticketing office":
             case "ticketingoffice":
+	   
+
                 System.out.print("Enter color: ");
                  color = scanner.next();
           
@@ -298,7 +300,7 @@ public class CircusDriverApp {
 
 
 
-    private static void handleGenerateTicket(Scanner scanner) {
+    private static void handleGenerateTicket(Circus circus, Scanner scanner) {
 
         double totalAmount = 0;
         double basePrice;
@@ -383,23 +385,32 @@ public class CircusDriverApp {
             int numberOfTickets = scanner.nextInt();
             scanner.nextLine();
 
-            // Calculate discounts and total price for this batch of tickets
-            double totalDiscount = dayDiscount + customerDiscount + seatDiscount;
-            double ticketPrice = (basePrice * seatMultiplier) * (1 - totalDiscount) * numberOfTickets;
+            double ticketPrice = 0.0;
+	    double totalDiscount = dayDiscount + customerDiscount + seatDiscount;
+
+	    //keeping the tickets on record for safe keeping
+	    for(int i =0; i<numberOfTickets;i++){
+		    Ticket ticket = circus.generateTicket(selectedDay.toString(),basePrice,customerType);
+		    circus.addTicket(ticket);
+		    System.out.println(ticket);
+	    }
+
+	    // Calculate discounts and total price for this batch of tickets
+	    ticketPrice = (basePrice * seatMultiplier) * (1 - totalDiscount) * numberOfTickets;
 
 
-            // Add to total amount
-            totalAmount += ticketPrice;
+	    // Add to total amount
+	    totalAmount += ticketPrice;
 
 
 
-            // Append details of this batch to the ticket details
-            ticketDetails.append(String.format("Day: %s, Customer Type: %s, Seat Location: %d, Number of Tickets: %d, Price: $%.2f%n",
-                    selectedDay, customerTypeName, seatLocation, numberOfTickets, ticketPrice));
-            
+	    // Append details of this batch to the ticket details
+	    ticketDetails.append(String.format("Day: %s, Customer Type: %s, Seat Location: %d, Number of Tickets: %d, Price: $%.2f%n",
+				    selectedDay, customerTypeName, seatLocation, numberOfTickets, ticketPrice));
 
-            // Ask user to add more tickets
-            System.out.print("\nDo you want to add more tickets? (y/n): ");
+
+	    // Ask user to add more tickets
+	    System.out.print("\nDo you want to add more tickets? (y/n): ");
             String response = scanner.nextLine().trim().toLowerCase();
             addMoreTickets = response.equals("y");
         }
