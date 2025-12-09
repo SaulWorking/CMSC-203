@@ -83,14 +83,14 @@ public class CircusDriverApp {
                         break;
                     case 9:
                         System.out.println("Sorting animals by name...");
-  //                      circus.sortAnimalsByName();
+                    circus.sortAnimalsByName();
                         System.out.println("Animals sorted by name.");
                         break;                       
                     case 10:
                         System.out.print("Enter the name of the animal to search: ");
                         scanner.nextLine(); // Consume the leftover newline
                         String searchName = scanner.nextLine();
-                     //   circus.searchAnimalByName(searchName);
+                     circus.searchAnimalByName(searchName);
                         break;
                     case 11:
                         exit = true;

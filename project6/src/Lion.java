@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Lion implements Animal {
+public class Lion implements Animal, Cloneable {
 	//instance variables
     private String name;
     private int age;
@@ -33,7 +33,11 @@ public class Lion implements Animal {
 	public int getAge(){
 		return this.age;	
 	}
-
+   @Override
+	public Lion clone(){
+		Lion newLion = new Lion(name,age,species,color);
+		return newLion;
+	}
 
 		// Check for reference equality
 		// Check for null or different class

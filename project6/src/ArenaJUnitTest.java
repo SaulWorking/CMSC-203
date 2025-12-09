@@ -21,19 +21,31 @@ class ArenaJUnitTest {
     }
 
     @Test
-	//testSetSize()
+    public void testSetSize() {
+        arena.setSize(200.0, 75.0);
+
+        assertEquals(200.0, arena.getLength(), 0.001);
+        assertEquals(75.0, arena.getWidth(), 0.001);
+    }
 
     @Test
-	//testSetColor()
+    public void testSetColor() {
+        arena.setColor("Red");
 
+        assertEquals("Red", arena.getColor());
+    }
 
     @Test
-	//testSetBuildingType()
+    public void testSetBuildingType() {
+        arena.setBuildingType("Stadium");
 
-      
+        assertEquals("Stadium", arena.getBuildingType());
+    }
+
     @Test
-	//testToString()
+    public void testToString() {
+        String expected = "Building type: Arena, length: 100.000000, width: 50.000000, color: Blue";
+        assertEquals(expected, arena.toString());
+    }
 
-    
-    
 }

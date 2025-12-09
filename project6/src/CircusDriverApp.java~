@@ -90,7 +90,7 @@ public class CircusDriverApp {
                         System.out.print("Enter the name of the animal to search: ");
                         scanner.nextLine(); // Consume the leftover newline
                         String searchName = scanner.nextLine();
-                     //   circus.searchAnimalByName(searchName);
+                     // circus.searchAnimalByName(searchName);
                         break;
                     case 11:
                         exit = true;

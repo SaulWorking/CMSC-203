@@ -13,6 +13,10 @@ public class Circus {
         buildings = new ArrayList<>();
         tickets = new ArrayList<>();
     }
+    
+    public List<Animal> getAnimals(){
+    	return animals;
+    }
 
     // Add building
     
@@ -51,89 +55,75 @@ public class Circus {
             System.out.println(animal.toString());
         }
     }
+    
 
     // Selection sort to sort animals by age
-    void sortAnimalsByAge(){    
-    List<Integer> animalAgeIndex = new ArrayList<>();
+void sortAnimalsByAge() {
+    List<Animal> sortedAge = new ArrayList<>(animals); 
+    for (int i = 0; i < sortedAge.size() - 1; i++) {
+        int minIndex = i;
 
-	  for(int i = 0; i<animals.size()-1;i++)
-	  {
-          int min_index = i;
+        for (int j = i + 1; j < sortedAge.size(); j++) {
+            if (sortedAge.get(j).getAge() < sortedAge.get(minIndex).getAge()) {
+                minIndex = j;
+            }
+        }
 
-          for(int j =i+1; j<animals.size();j++)
-          {
-
-                  int animal1age = animals.get(j).getAge(); 
-                  int animal2age = animals.get(min_index).getAge();	
-                  if(animal1age < animal2age)
-                  {
-                    min_index = j;
-                  } 
-                
-          }
-          
-	  	  int tempIndex = i;
-          animalAgeIndex.get(i) = animalAgeIndex
-        sortedAge.get(i).getAge() = sortedAge.get(min_index).getAge();
-        sortedAge.get(min_index) = temp;
-
-	  }
-
-      for (Animal animal : sortedAge) {
-          System.out.println(animal.toString());
-      }
+        Animal temp = sortedAge.get(i);
+        sortedAge.set(i, sortedAge.get(minIndex));
+        sortedAge.set(minIndex, temp);
     }
+
+    for (Animal animal : sortedAge) {
+        System.out.println(animal);
+    }
+}
 
     
     // Selection sort to sort animals by name
     
-    void sortAnimalByName(){
+void sortAnimalsByName() {
     List<Animal> sortedName = new ArrayList<>(animals);
 
-	  for(int i = 0; i<animals.size()-1;i++)
-	  {
-          int min_index = i;
+    for (int i = 0; i < sortedName.size() - 1; i++) {
+        int minIndex = i;
 
-          for(int j =i+1; j<animals.size();j++)
-          {
+        for (int j = i + 1; j < sortedName.size(); j++) {
+            String name1 = sortedName.get(j).getName();
+            String name2 = sortedName.get(minIndex).getName();
 
-                  String animal1name = animals.get(j).getName(); 
-                  String animal2name = animals.get(min_index).getName();	
-                  if(animal1name.compareTo(animal2name) < 0)
-                  {
-                    min_index = j;
-                  } 
-                
-          }
-          
-	  	  String temp = sortedName.get(i).getName();
-        sortedName.get(i).getName().replace(sortedName.get(i).getName(), sortedName.get(min_index).getName());
-        sortedName.get(min_index).getName().replace(sortedName.get(min_index).getName(), temp);
-	  }
+            if (name1.compareToIgnoreCase(name2) < 0) {
+                minIndex = j;
+            }
+        }
 
-      System.out.println("Animals sorted by name:");
-      for (Animal animal : sortedName) {
-          System.out.println(animal.toString());
-      }
+        Animal temp = sortedName.get(i);
+        sortedName.set(i, sortedName.get(minIndex));
+        sortedName.set(minIndex, temp);
     }
+
+    for (Animal animal : sortedName) {
+        System.out.println(animal.getName());
+    }
+}
     // Search for an animal by name
-    // try and use binary search here... (sort the names first)
-    void searchAnimalName(String name){
-	    String animalName;
-
-	    for(int i =0; i<animals.size();i++){
-		    animalName = animals.get(i).getName();
-		    if(name.toLowerCase().equals(animalName.toLowerCase())){
-		    	System.out.println(animals.get(i));
-		    }
-	    	
-	    }
-
-        return; 
+void searchAnimalByName(String name) {
+    if (name == null || name.isEmpty()){
+        return;
     }
+
+    String lookup = name.trim().toLowerCase();
+
+    for (Animal animal : animals) {
+        String animalName = animal.getName().trim().toLowerCase();
+
+        if (animalName.equals(lookup)) {
+            System.out.println(animal);
+        }
+    }
+}
 
     // Add ticket
-
     void addTicket(Ticket ticket){
     	this.tickets.add(ticket);
     }

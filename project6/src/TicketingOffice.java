@@ -48,11 +48,13 @@ public class TicketingOffice implements Building {
 	//getBuildingType()
     	public String getBuildingType(){return this.buildingType;}
     
-    @Override
 	//toString()
-    	public String toString(){
-		String info = String.format("Building type: %s, Length: %f, Width: %f, Color, %s",buildingType,length,width,color);
-		return info;	
-	}
+    @Override
+    public String toString() {
+        return String.format(
+            "Building type: %s, Length: %f, Width: %f, Color: %s",
+            getBuildingType(), getLength(), getWidth(), getColor()
+        );
+    }
 
 }

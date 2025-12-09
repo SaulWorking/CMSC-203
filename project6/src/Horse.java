@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Horse implements Animal {
+public class Horse implements Animal, Cloneable {
 	
 	//instance variables
 	private String name;
@@ -34,6 +34,11 @@ public class Horse implements Animal {
     @Override
 	public int getAge(){
 		return this.age;	
+	}
+    @Override
+	public Horse clone(){
+		Horse newHorse = new Horse(name,age,species,color);
+		return newHorse;
 	}
 
 
