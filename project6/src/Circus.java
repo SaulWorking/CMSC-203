@@ -53,34 +53,42 @@ public class Circus {
     }
 
     // Selection sort to sort animals by age
-    void sortAnimalsByAge(){
+    void sortAnimalsByAge(){    
+    List<Integer> animalAgeIndex = new ArrayList<>();
+
 	  for(int i = 0; i<animals.size()-1;i++)
 	  {
-		int min_index = i;
+          int min_index = i;
 
-      for(int j =i+1; j<animals.size();j++)
-      {
-        int animal1age = animals.get(j).getAge(); 
-        int animal2age = animals.get(min_index).getAge();	
+          for(int j =i+1; j<animals.size();j++)
+          {
 
-              if(animal1age <  animal2age)
-              {
-                min_index = j;
-              } 
-      
-      }
-	  
-  //      int temp = animals.get(j).getAge();
-   //   animals.get(j).setAge(animals.get(min_index).getAge());
-   //   animals.get(min_index).setAge(temp);
+                  int animal1age = animals.get(j).getAge(); 
+                  int animal2age = animals.get(min_index).getAge();	
+                  if(animal1age < animal2age)
+                  {
+                    min_index = j;
+                  } 
+                
+          }
+          
+	  	  int tempIndex = i;
+          animalAgeIndex.get(i) = animalAgeIndex
+        sortedAge.get(i).getAge() = sortedAge.get(min_index).getAge();
+        sortedAge.get(min_index) = temp;
+
 	  }
+
+      for (Animal animal : sortedAge) {
+          System.out.println(animal.toString());
+      }
     }
 
     
     // Selection sort to sort animals by name
     
     void sortAnimalByName(){
-    List<Animal> sortedAnimals = new ArrayList<>(animals);
+    List<Animal> sortedName = new ArrayList<>(animals);
 
 	  for(int i = 0; i<animals.size()-1;i++)
 	  {
@@ -98,13 +106,13 @@ public class Circus {
                 
           }
           
-	  	  String temp = sortedAnimals.get(i).getName();
-        sortedAnimals.get(i).getName().replace(sortedAnimals.get(i).getName(), sortedAnimals.get(min_index).getName());
-        sortedAnimals.get(min_index).getName().replace(sortedAnimals.get(min_index).getName(), temp);
+	  	  String temp = sortedName.get(i).getName();
+        sortedName.get(i).getName().replace(sortedName.get(i).getName(), sortedName.get(min_index).getName());
+        sortedName.get(min_index).getName().replace(sortedName.get(min_index).getName(), temp);
 	  }
 
       System.out.println("Animals sorted by name:");
-      for (Animal animal : sortedAnimals) {
+      for (Animal animal : sortedName) {
           System.out.println(animal.toString());
       }
     }
@@ -112,7 +120,7 @@ public class Circus {
     // try and use binary search here... (sort the names first)
     void searchAnimalName(String name){
 	    String animalName;
-	  
+
 	    for(int i =0; i<animals.size();i++){
 		    animalName = animals.get(i).getName();
 		    if(name.toLowerCase().equals(animalName.toLowerCase())){
@@ -121,7 +129,7 @@ public class Circus {
 	    	
 	    }
 
-        return this.animals.get(animal);
+        return; 
     }
 
     // Add ticket

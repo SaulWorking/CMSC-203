@@ -127,71 +127,92 @@ public class CircusDriverApp {
     // handleAddAnimal()
     private static void handleAddAnimal(Circus circus, Scanner scanner) {
         try{        
-            System.out.print("Enter animal type (bird, dog, horse, lion): ");
-            String animalType = scanner.next();
+            System.out.println("Enter animal type:");
 
-            switch(animalType.toLowerCase()){
-                case "bird":
-                    System.out.print("Enter name: ");
-                    String birdName = scanner.next();
+                System.out.println("1. Bird");
+                System.out.println("2. Dog");
+                System.out.println("3. Horse");
+                System.out.println("4. Lion");
+            int animalType = scanner.nextInt();
 
-                    System.out.print("Enter age: ");
+            //to eat up input
+            scanner.nextLine();
+
+            switch(animalType){
+                case 1:
+                    System.out.println("Enter name: ");
+                    String birdName = scanner.nextLine();
+                    
+                    
+
+                    System.out.println("Enter age: ");
                     int birdAge = scanner.nextInt();
 
-                    System.out.print("Enter species: ");
-                    String birdSpecies = scanner.next();
+                    //to eat up input
+                    scanner.nextLine();
 
-                    System.out.print("Enter color: ");
-                    String birdColor = scanner.next();
+                    System.out.println("Enter species: ");
+                    String birdSpecies = scanner.nextLine();
+
+                    System.out.println("Enter color: ");
+                    String birdColor = scanner.nextLine();
 
                     circus.addAnimal(new Bird(birdName, birdAge, birdSpecies, birdColor));
                     return;
                                 
 
-                case "dog":
+                case 2:
                     System.out.print("Enter name: ");
-                    String dogName = scanner.next();
+                    String dogName = scanner.nextLine();
 
                     System.out.print("Enter age: ");
                     int dogAge = scanner.nextInt();
+                    //to eat up input
+                    scanner.nextLine();
 
                     System.out.print("Enter species: ");
-                    String dogSpecies = scanner.next();
+                    String dogSpecies = scanner.nextLine();
 
                     System.out.print("Enter color: ");
-                    String dogColor = scanner.next();
+                    String dogColor = scanner.nextLine();
 
                     circus.addAnimal(new Dog(dogName, dogAge, dogSpecies, dogColor));
                     return;
                 
-                case "horse":
+                case 3:
                     System.out.print("Enter name: ");
-                    String horseName = scanner.next();
+                    String horseName = scanner.nextLine();
 
                     System.out.print("Enter age: ");
                     int horseAge = scanner.nextInt();
 
+                    //to eat up input
+                    scanner.nextLine();
+
                     System.out.print("Enter species: ");
-                    String horseSpecies = scanner.next();
+                    String horseSpecies = scanner.nextLine();
 
                     System.out.print("Enter color: ");
-                    String horseColor = scanner.next();
+                    String horseColor = scanner.nextLine();
 
                     circus.addAnimal(new Horse(horseName, horseAge, horseSpecies, horseColor));
                     return;
             
-             case "lion":
-                    System.out.print("Enter name: ");
-                    String lionName = scanner.next();
+             case 4:
+                    System.out.println("Enter name: ");
+                    String lionName = scanner.nextLine();
 
-                    System.out.print("Enter age: ");
+                    System.out.println("Enter age: ");
                     int lionAge = scanner.nextInt();
 
-                    System.out.print("Enter species: ");
-                    String lionSpecies = scanner.next();
+                    //to eat up input
+                    scanner.nextLine();
 
-                    System.out.print("Enter color: ");
-                    String lionColor = scanner.next();
+                    System.out.println("Enter species: ");
+                    String lionSpecies = scanner.nextLine();
+
+                    System.out.println("Enter color: ");
+                    String lionColor = scanner.nextLine();
 
                     circus.addAnimal(new Lion(lionName, lionAge, lionSpecies, lionColor));
                     return;
@@ -201,43 +222,51 @@ public class CircusDriverApp {
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid input type. Please try again.");
-            scanner.nextLine();
         }
     }
 	
     // handleAddPerson()
     private static void handleAddPerson(Circus circus, Scanner scanner) {
-        System.out.println("entering person type(Acrobatic, Clerk,)");
-        String job = scanner.next();
-        String name;
-        int age;
-        int yearsWorked;
+            System.out.println("Enter Job type:");
+
+                System.out.println("1. Acrobatic");
+                System.out.println("2. Clerk");
+   
+                  int job = scanner.nextInt();
+ 
+                    //to eat up input
+                    scanner.nextLine();
         try{
-        switch(job.toLowerCase()){
-            case "acrobatic":
+        switch(job){
+            case 1:
                 System.out.print("Enter name: ");
-                 name = scanner.next();
+                String Aname = scanner.next();
 
                 System.out.print("Enter age: ");
-                age = scanner.nextInt();
+                int Aage = scanner.nextInt();
 
                 System.out.print("Enter years worked: ");
-                 yearsWorked = scanner.nextInt();
-
-                circus.addPerson(new Acrobatic(name, age, yearsWorked, job));
+                int AyearsWorked = scanner.nextInt();
+                // to eat up input
+                scanner.nextLine();
+                
+                circus.addPerson(new Acrobatic(Aname, Aage, AyearsWorked, "Acrobatic"));
                 return;
 
-            case "clerk":
+            case 2:
                 System.out.print("Enter name: ");
-                 name = scanner.next();
+               String Cname = scanner.next();
 
                 System.out.print("Enter age: ");
-                age = scanner.nextInt();
+              int  Cage = scanner.nextInt();
 
                 System.out.print("Enter years worked: ");
-                yearsWorked = scanner.nextInt();
+              int  CyearsWorked = scanner.nextInt();
 
-                circus.addPerson(new Clerk(name, age, yearsWorked, job));
+                              // to eat up input
+                scanner.nextLine();
+
+                circus.addPerson(new Clerk(Cname, Cage, CyearsWorked, "Clerk"));
                 return;
 
             default:
@@ -252,38 +281,47 @@ public class CircusDriverApp {
 	
     // handleAddBuilding()
     private static void handleAddBuilding(Circus circus, Scanner scanner) {
-        System.out.println("Enter building type (arena, ticketingoffice): ");
-        String buildingType = scanner.next();
-        String color; 
-        int length, width;
+            System.out.println("Enter Building type:");
+
+                System.out.println("1. Arena");
+                System.out.println("2. Ticketing Office");    
+             int buildingType = scanner.nextInt();
+
+        //to eat up input
+        scanner.nextLine();
+        
         try{
-        switch(buildingType.toLowerCase()){
-            case "arena":
+        switch(buildingType){
+            case 1:
                 System.out.print("Enter color: ");
-                 color = scanner.next();
+                 String Arenacolor = scanner.nextLine();
           
                 System.out.print("Enter length: ");
-                 length = scanner.nextInt();
+                 int Arenalength = scanner.nextInt();
 
                 System.out.print("Enter width: ");
-                 width = scanner.nextInt();
+                 int Arenawidth = scanner.nextInt();
 
-                circus.addBuilding(new Arena(color, length, width));
+                // to eat up input
+                scanner.nextLine();
+
+                circus.addBuilding(new Arena(Arenacolor, Arenalength, Arenawidth));
                 return;
-	    case "ticketing office":
-            case "ticketingoffice":
+            case 2:
 	   
-
                 System.out.print("Enter color: ");
-                 color = scanner.next();
+                 String Ticketcolor = scanner.nextLine();
           
                 System.out.print("Enter length: ");
-                 length = scanner.nextInt();
+                 int Ticketlength = scanner.nextInt();
 
                 System.out.print("Enter width: ");
-                 width = scanner.nextInt();
+                 int Ticketwidth = scanner.nextInt();
 
-                circus.addBuilding(new TicketingOffice(color, length, width));
+                // to eat up input
+                scanner.nextLine();
+
+                circus.addBuilding(new TicketingOffice(Ticketcolor, Ticketlength, Ticketwidth));
                 return;
 
             default:
